@@ -1,0 +1,27 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil\fcharset1 Courier New;}}{\colortbl\red0\green0\blue255;\red255\green255\blue255;\red128\green0\blue128;\red255\green255\blue255;\red128\green128\blue128;\red255\green255\blue255;\red77\green166\blue25;\red255\green255\blue255;}\f0\fs20
+{\*\generator AB4Editor Control;}{\info{\title ZIO_EGT_24}{\author Alexey Arseniev}{\*\company Alexey Arseniev}}{\cf0\chcbpat1 REPORT }{ZIO_EGT_24}{\cf2\chcbpat3 .}\line
+{}\line
+{\cf0\chcbpat1 DATA}{\cf2\chcbpat3 : }{gt_scarr }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 TABLE }{\cf0\chcbpat1 OF }{scarr}{\cf2\chcbpat3 ,}\line
+{      }{gs_scarr }{\cf0\chcbpat1 TYPE }{scarr}{\cf2\chcbpat3 .}\line
+{}\line
+{\cf0\chcbpat1 START-OF-SELECTION}{\cf2\chcbpat3 .}\line
+{}\line
+{  }{\cf0\chcbpat1 SELECT }{* }{\cf0\chcbpat1 FROM }{scarr}\line
+{    }{\cf0\chcbpat1 INTO }{\cf0\chcbpat1 TABLE }{gt_scarr}{\cf2\chcbpat3 .}\line
+{}\line
+{\i \cf4\chcbpat5 *    READ TABLE gt_scarr INTO gs_scarr INDEX 4.}\line
+{\i \cf4\chcbpat5 *}\line
+{\i \cf4\chcbpat5 *    WRITE: gs_scarr.}\line
+{}\line
+{\i \cf4\chcbpat5 *    READ TABLE gt_scarr INTO gs_scarr WITH KEY carrid = 'AZ'.}\line
+{\i \cf4\chcbpat5 *    READ TABLE gt_scarr INTO gs_scarr WITH KEY carrname = 'Alitalia'.}\line
+{\i \cf4\chcbpat5 *    READ TABLE gt_scarr INTO gs_scarr WITH KEY currcode = 'EUR'}\line
+{\i \cf4\chcbpat5 *                                               carrname = 'Alitalia'.}\line
+{\i \cf4\chcbpat5 *}\line
+{\i \cf4\chcbpat5 *}\line
+{\i \cf4\chcbpat5 *    LOOP AT gt_scarr INTO gs_scarr WHERE currcode = 'EUR'.}\line
+{\i \cf4\chcbpat5 *    WRITE: gs_scarr.}\line
+{\i \cf4\chcbpat5 *}\line
+{\i \cf4\chcbpat5 *    ENDLOOP.}\line
+{}\line
+{    }{\cf0\chcbpat1 READ }{\cf0\chcbpat1 TABLE }{gt_scarr }{\cf0\chcbpat1 INTO }{gs_scarr }{\cf0\chcbpat1 WITH }{\cf0\chcbpat1 KEY }{currcode }{\cf2\chcbpat3 = }{\cf6\chcbpat7 'EUR'}{\cf2\chcbpat3 .}\par }

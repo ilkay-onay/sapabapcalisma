@@ -1,0 +1,73 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZIO_PROTOPERS_FRM
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&      Form  SHOW_INFO
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM base_show.
+  CALL FUNCTION 'SSF_FUNCTION_MODULE_NAME'
+  EXPORTING
+    formname                 = 'ZIO_PROTO_PERS'
+*   VARIANT                  = ' '
+*   DIRECT_CALL              = ' '
+ IMPORTING
+   FM_NAME                  = gv_fm_name
+ EXCEPTIONS
+   NO_FORM                  = 1
+   NO_FUNCTION_MODULE       = 2
+   OTHERS                   = 3
+          .
+IF sy-subrc = 3.
+ENDIF.
+
+CALL FUNCTION gv_fm_name
+ EXPORTING
+*   ARCHIVE_INDEX              =
+*   ARCHIVE_INDEX_TAB          =
+*   ARCHIVE_PARAMETERS         =
+   CONTROL_PARAMETERS         = gs_controls
+*   MAIL_APPL_OBJ              =
+*   MAIL_RECIPIENT             =
+*   MAIL_SENDER                =
+   OUTPUT_OPTIONS             = gs_output_opt
+   USER_SETTINGS              = ' '
+   GV_ID  = gv_id_g
+* IMPORTING
+*   DOCUMENT_OUTPUT_INFO       =
+*   JOB_OUTPUT_INFO            =
+*   JOB_OUTPUT_OPTIONS         =
+ EXCEPTIONS
+   FORMATTING_ERROR           = 1
+   INTERNAL_ERROR             = 2
+   SEND_ERROR                 = 3
+   USER_CANCELED              = 4
+   OTHERS                     = 5
+          .
+IF sy-subrc = 1.
+  MESSAGE 'Personeli yanlış girdiniz!' TYPE 'E' DISPLAY LIKE 'I'.
+ENDIF.
+ENDFORM.
+FORM show_info .
+  gs_controls-no_dialog = abap_true.
+  gs_controls-preview = abap_true.
+  gs_output_opt-tddest = 'LOCL'.
+  PERFORM base_show.
+ENDFORM.
+*&---------------------------------------------------------------------*
+*&      Form  PRINT_STUFF
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+*  -->  p1        text
+*  <--  p2        text
+*----------------------------------------------------------------------*
+FORM print_stuff .
+  CLEAR: gs_controls,
+         gs_output_opt.
+  PERFORM base_show.
+ENDFORM.

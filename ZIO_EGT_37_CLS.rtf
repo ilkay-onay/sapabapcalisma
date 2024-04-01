@@ -1,0 +1,133 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil\fcharset1 Courier New;}}{\colortbl\red128\green128\blue128;\red255\green255\blue255;\red0\green0\blue255;\red255\green255\blue255;\red128\green0\blue128;\red255\green255\blue255;\red128\green128\blue128;\red255\green255\blue255;\red77\green166\blue25;\red255\green255\blue255;\red51\green153\blue255;\red255\green255\blue255;}\f0\fs20
+{\*\generator AB4Editor Control;}{\info{\title ZIO_EGT_37_CLS}{\author Alexey Arseniev}{\*\company Alexey Arseniev}}{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&  Include           ZIO_EGT_33_CLS}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\cf2\chcbpat3 CLASS }{cl_event_receiver }{\cf2\chcbpat3 DEFINITION}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 PUBLIC }{\cf2\chcbpat3 SECTION}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 METHODS }{handle_top_of_page}\line
+{          }{\cf2\chcbpat3 FOR }{\cf2\chcbpat3 EVENT }{top_of_page }{\cf2\chcbpat3 OF }{cl_gui_alv_grid}\line
+{      }{\cf2\chcbpat3 IMPORTING}\line
+{          }{e_dyndoc_id}\line
+{          }{table_index}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 METHODS }{handle_hotspot_click}\line
+{          }{\cf2\chcbpat3 FOR }{\cf2\chcbpat3 EVENT }{hotspot_click }{\cf2\chcbpat3 OF }{cl_gui_alv_grid}\line
+{      }{\cf2\chcbpat3 IMPORTING}\line
+{          }{e_row_id}\line
+{          }{e_column_id}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 METHODS }{handle_double_click}\line
+{          }{\cf2\chcbpat3 FOR }{\cf2\chcbpat3 EVENT }{double_click }{\cf2\chcbpat3 OF }{cl_gui_alv_grid}\line
+{      }{\cf2\chcbpat3 IMPORTING}\line
+{          }{e_row}\line
+{          }{e_column}\line
+{          }{es_row_no}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 METHODS }{handle_data_changed}\line
+{          }{\cf2\chcbpat3 FOR }{\cf2\chcbpat3 EVENT }{data_changed }{\cf2\chcbpat3 OF }{cl_gui_alv_grid}\line
+{      }{\cf2\chcbpat3 IMPORTING}\line
+{          }{er_data_changed}\line
+{          }{e_onf4}\line
+{          }{e_onf4_before}\line
+{          }{e_onf4_after}\line
+{          }{e_ucomm}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 METHODS }{handle_onf4}\line
+{          }{\cf2\chcbpat3 FOR }{\cf2\chcbpat3 EVENT }{onf4 }{\cf2\chcbpat3 OF }{cl_gui_alv_grid}\line
+{      }{\cf2\chcbpat3 IMPORTING}\line
+{          }{e_fieldname}\line
+{          }{e_fieldvalue}\line
+{          }{es_row_no}\line
+{          }{er_event_data}\line
+{          }{et_bad_cells}\line
+{          }{e_display}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 METHODS }{handle_button_click}\line
+{          }{\cf2\chcbpat3 FOR }{\cf2\chcbpat3 EVENT }{button_click }{\cf2\chcbpat3 OF }{cl_gui_alv_grid}\line
+{      }{\cf2\chcbpat3 IMPORTING}\line
+{          }{es_col_id}\line
+{          }{es_row_no}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 METHODS }{handle_toolbar}\line
+{          }{\cf2\chcbpat3 FOR }{\cf2\chcbpat3 EVENT }{toolbar }{\cf2\chcbpat3 OF }{cl_gui_alv_grid}\line
+{      }{\cf2\chcbpat3 IMPORTING}\line
+{          }{e_object}\line
+{          }{e_interactive}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 METHODS }{handle_user_command}\line
+{          }{\cf2\chcbpat3 FOR }{\cf2\chcbpat3 EVENT }{user_command }{\cf2\chcbpat3 OF }{cl_gui_alv_grid}\line
+{      }{\cf2\chcbpat3 IMPORTING}\line
+{          }{e_ucomm}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 ENDCLASS}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 CLASS }{cl_event_receiver }{\cf2\chcbpat3 IMPLEMENTATION}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 METHOD }{handle_top_of_page}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 BREAK-POINT}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDMETHOD}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 METHOD }{handle_hotspot_click}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 BREAK-POINT}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDMETHOD}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 METHOD }{handle_double_click}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 BREAK-POINT}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDMETHOD}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 METHOD }{handle_data_changed}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 BREAK-POINT}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDMETHOD}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 METHOD }{handle_onf4}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 TYPES}{\cf4\chcbpat5 : }{\cf2\chcbpat3 BEGIN }{\cf2\chcbpat3 OF }{lty_value_tab}{\cf4\chcbpat5 ,}\line
+{             }{carrname }{\cf2\chcbpat3 TYPE }{s_carrname}{\cf4\chcbpat5 ,}\line
+{             }{carrdeff }{\cf2\chcbpat3 TYPE }{char30}{\cf4\chcbpat5 ,}\line
+{           }{\cf2\chcbpat3 END }{\cf2\chcbpat3 OF }{lty_value_tab}{\cf4\chcbpat5 .}\line
+{}\line
+{    }{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{lt_value_tab }{\cf2\chcbpat3 TYPE }{\cf2\chcbpat3 TABLE }{\cf2\chcbpat3 OF }{lty_value_tab}{\cf4\chcbpat5 ,}\line
+{          }{ls_value_tab }{\cf2\chcbpat3 TYPE }{lty_value_tab}{\cf4\chcbpat5 .}\line
+{}\line
+{    }{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{lt_return_tab }{\cf2\chcbpat3 TYPE }{\cf2\chcbpat3 TABLE }{\cf2\chcbpat3 OF }{ddshretval}{\cf4\chcbpat5 ,}\line
+{          }{ls_return_tab }{\cf2\chcbpat3 TYPE }{ddshretval}{\cf4\chcbpat5 .}\line
+{}\line
+{    }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{ls_value_tab}{\cf4\chcbpat5 .}\line
+{    }{ls_value_tab}{\cf6\chcbpat7 -}{carrname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'U\u231?u\u351? 1'}{\cf4\chcbpat5 .}\line
+{    }{ls_value_tab}{\cf6\chcbpat7 -}{carrdeff }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Birinci u\u231?u\u351?'}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 APPEND }{ls_value_tab }{\cf2\chcbpat3 TO }{lt_value_tab}{\cf4\chcbpat5 .}\line
+{}\line
+{    }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{ls_value_tab}{\cf4\chcbpat5 .}\line
+{    }{ls_value_tab}{\cf6\chcbpat7 -}{carrname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'U\u231?u\u351? 2'}{\cf4\chcbpat5 .}\line
+{    }{ls_value_tab}{\cf6\chcbpat7 -}{carrdeff }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '\u304?kinci u\u231?u\u351?'}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 APPEND }{ls_value_tab }{\cf2\chcbpat3 TO }{lt_value_tab}{\cf4\chcbpat5 .}\line
+{}\line
+{    }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{ls_value_tab}{\cf4\chcbpat5 .}\line
+{    }{ls_value_tab}{\cf6\chcbpat7 -}{carrname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'U\u231?u\u351? 3'}{\cf4\chcbpat5 .}\line
+{    }{ls_value_tab}{\cf6\chcbpat7 -}{carrdeff }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '\u220?\u231?\u252?nc\u252? u\u231?u\u351?'}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 APPEND }{ls_value_tab }{\cf2\chcbpat3 TO }{lt_value_tab}{\cf4\chcbpat5 .}\line
+{}\line
+{    }{\cf2\chcbpat3 CALL }{\cf2\chcbpat3 FUNCTION }{\cf8\chcbpat9 'F4IF_INT_TABLE_VALUE_REQUEST'}\line
+{      }{\cf2\chcbpat3 EXPORTING}\line
+{        }{retfield     }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'CARRNAME'}\line
+{        }{window_title }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Carrname F4'}\line
+{        }{value_org    }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'S'}\line
+{      }{\cf2\chcbpat3 TABLES}\line
+{        }{value_tab    }{\cf4\chcbpat5 = }{lt_value_tab}\line
+{        }{return_tab   }{\cf4\chcbpat5 = }{lt_return_tab}{\cf4\chcbpat5 .}\line
+{}\line
+{    }{\cf2\chcbpat3 READ }{\cf2\chcbpat3 TABLE }{lt_return_tab }{\cf2\chcbpat3 INTO }{ls_return_tab }{\cf2\chcbpat3 WITH }{\cf2\chcbpat3 KEY }{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'F0001'}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 IF }{sy}{\cf6\chcbpat7 -}{subrc }{\cf2\chcbpat3 EQ }{\cf10\chcbpat11 0}{\cf4\chcbpat5 .}\line
+{      }{\cf2\chcbpat3 READ }{\cf2\chcbpat3 TABLE }{gt_scarr }{\cf2\chcbpat3 ASSIGNING }{<gfs_scarr> }{\cf2\chcbpat3 INDEX }{es_row_no}{\cf6\chcbpat7 -}{row_id}{\cf4\chcbpat5 .}\line
+{      }{\cf2\chcbpat3 IF }{sy}{\cf6\chcbpat7 -}{subrc }{\cf2\chcbpat3 EQ }{\cf10\chcbpat11 0}{\cf4\chcbpat5 .}\line
+{        }{<gfs_scarr>}{\cf6\chcbpat7 -}{carrname }{\cf4\chcbpat5 = }{ls_return_tab}{\cf6\chcbpat7 -}{fieldval}{\cf4\chcbpat5 .}\line
+{}\line
+{        }{go_grid}{\cf6\chcbpat7 ->}{refresh_table_display}{\cf4\chcbpat5 (}\line
+{   }{\cf4\chcbpat5 )}{\cf4\chcbpat5 .}\line
+{      }{\cf2\chcbpat3 ENDIF}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 ENDIF}{\cf4\chcbpat5 .}\line
+{}\line
+{    }{er_event_data}{\cf6\chcbpat7 ->}{m_event_handled }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'X'}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 ENDMETHOD}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 METHOD }{handle_button_click}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 BREAK-POINT}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDMETHOD}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 METHOD }{handle_toolbar}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 BREAK-POINT}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDMETHOD}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 METHOD }{handle_user_command}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 BREAK-POINT}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDMETHOD}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 ENDCLASS}{\cf4\chcbpat5 .}\par }

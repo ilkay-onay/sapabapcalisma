@@ -1,0 +1,8 @@
+REPORT ZIO_EGT_43.
+
+
+PARAMETERS: p_uname TYPE uname.
+
+START-OF-SELECTION.
+
+WRITE: p_uname.

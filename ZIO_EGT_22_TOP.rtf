@@ -1,0 +1,57 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil\fcharset1 Courier New;}}{\colortbl\red128\green128\blue128;\red255\green255\blue255;\red0\green0\blue255;\red255\green255\blue255;\red128\green0\blue128;\red255\green255\blue255;\red128\green128\blue128;\red255\green255\blue255;}\f0\fs20
+{\*\generator AB4Editor Control;}{\info{\title ZIO_EGT_22_TOP}{\author Alexey Arseniev}{\*\company Alexey Arseniev}}{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&  Include           ZIO_EGT_22_TOP}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{}\line
+{\i \cf0\chcbpat1 *DATA: BEGIN OF gt_list occurs 0,}\line
+{\i \cf0\chcbpat1 *         ebeln LIKE ekko-ebeln,}\line
+{\i \cf0\chcbpat1 *         ebelp LIKE ekpo-ebelp,}\line
+{\i \cf0\chcbpat1 *         bstyp LIKE ekko-bstyp,}\line
+{\i \cf0\chcbpat1 *         bsart LIKE ekko-bsart,}\line
+{\i \cf0\chcbpat1 *         matnr LIKE ekpo-matnr,}\line
+{\i \cf0\chcbpat1 *         menge LIKE ekpo-menge,}\line
+{\i \cf0\chcbpat1 *         meins LIKE ekpo-meins,}\line
+{\i \cf0\chcbpat1 *         statu LIKE ekpo-statu,}\line
+{\i \cf0\chcbpat1 *  END OF gt_list.}\line
+{}\line
+{\cf2\chcbpat3 TYPES}{\cf4\chcbpat5 : }{\cf2\chcbpat3 BEGIN }{\cf2\chcbpat3 OF }{gty_list}{\cf4\chcbpat5 ,}\line
+{         }{selkz }{\cf2\chcbpat3 TYPE }{char1}{\cf4\chcbpat5 ,}\line
+{         }{ebeln }{\cf2\chcbpat3 TYPE }{ebeln}{\cf4\chcbpat5 ,}\line
+{         }{ebelp }{\cf2\chcbpat3 TYPE }{ebelp}{\cf4\chcbpat5 ,}\line
+{         }{bstyp }{\cf2\chcbpat3 TYPE }{ebstyp}{\cf4\chcbpat5 ,}\line
+{         }{bsart }{\cf2\chcbpat3 TYPE }{esart}{\cf4\chcbpat5 ,}\line
+{         }{matnr }{\cf2\chcbpat3 TYPE }{matnr}{\cf4\chcbpat5 ,}\line
+{         }{menge }{\cf2\chcbpat3 TYPE }{bstmg}{\cf4\chcbpat5 ,}\line
+{         }{meins }{\cf2\chcbpat3 TYPE }{meins}{\cf4\chcbpat5 ,}\line
+{         }{line_color }{\cf2\chcbpat3 TYPE }{char4}{\cf4\chcbpat5 ,}\line
+{         }{cell_color }{\cf2\chcbpat3 TYPE }{slis_t_specialcol_alv}{\cf4\chcbpat5 ,}\line
+{       }{\cf2\chcbpat3 END }{\cf2\chcbpat3 OF }{gty_list}{\cf4\chcbpat5 .}\line
+{}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gs_cell_color }{\cf2\chcbpat3 TYPE }{slis_specialcol_alv}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gt_list }{\cf2\chcbpat3 TYPE }{\cf2\chcbpat3 TABLE }{\cf2\chcbpat3 OF }{gty_list}{\cf4\chcbpat5 ,}\line
+{      }{gs_list }{\cf2\chcbpat3 TYPE }{gty_list}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gt_fieldcatalog }{\cf2\chcbpat3 TYPE }{slis_t_fieldcat_alv}{\cf4\chcbpat5 ,}\line
+{      }{gs_fieldcatalog }{\cf2\chcbpat3 TYPE }{slis_fieldcat_alv}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gs_layout }{\cf2\chcbpat3 TYPE }{slis_layout_alv}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gt_events }{\cf2\chcbpat3 TYPE }{SLIS_T_EVENT}{\cf4\chcbpat5 ,}\line
+{      }{gs_event }{\cf2\chcbpat3 TYPE }{SLIS_ALV_EVENT}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gt_exclude }{\cf2\chcbpat3 TYPE }{SLIS_T_EXTAB}{\cf4\chcbpat5 ,}\line
+{      }{gs_exclude }{\cf2\chcbpat3 TYPE }{slis_extab}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gt_sort }{\cf2\chcbpat3 TYPE }{SLIS_T_SORTINFO_ALV}{\cf4\chcbpat5 ,}\line
+{      }{gs_sort }{\cf2\chcbpat3 TYPE }{slis_sortinfo_alv}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gt_filter }{\cf2\chcbpat3 TYPE }{SLIS_T_FILTER_ALV}{\cf4\chcbpat5 ,}\line
+{      }{gs_filter }{\cf2\chcbpat3 TYPE }{slis_filter_alv}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gs_variant }{\cf2\chcbpat3 TYPE }{disvariant}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gs_variant_get }{\cf2\chcbpat3 TYPE }{disvariant}{\cf4\chcbpat5 ,}\line
+{      }{gv_exit }{\cf2\chcbpat3 TYPE }{char1}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 PARAMETERS}{\cf4\chcbpat5 : }{p_vari }{\cf2\chcbpat3 TYPE }{disvariant}{\cf6\chcbpat7 -}{variant}{\cf4\chcbpat5 .}\par }

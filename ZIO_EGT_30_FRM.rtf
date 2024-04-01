@@ -1,0 +1,390 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil\fcharset1 Courier New;}}{\colortbl\red128\green128\blue128;\red255\green255\blue255;\red0\green0\blue255;\red255\green255\blue255;\red128\green0\blue128;\red255\green255\blue255;\red128\green128\blue128;\red255\green255\blue255;\red77\green166\blue25;\red255\green255\blue255;\red51\green153\blue255;\red255\green255\blue255;}\f0\fs20
+{\*\generator AB4Editor Control;}{\info{\title ZIO_EGT_30_FRM}{\author Alexey Arseniev}{\*\company Alexey Arseniev}}{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&  Include           ZIO_EGT_30_FRM}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&      Form  DISPLAY_ALV}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *       text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *  -->  p1        text}\line
+{\i \cf0\chcbpat1 *  <--  p2        text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\cf2\chcbpat3 FORM }{display_alv }{\cf4\chcbpat5 .}\line
+{}\line
+{\i \cf0\chcbpat1 *  CREATE OBJECT go_cont}\line
+{\i \cf0\chcbpat1 *    EXPORTING}\line
+{\i \cf0\chcbpat1 *      container_name = 'CC_ALV'.}\line
+{\i \cf0\chcbpat1 *  CREATE OBJECT go_alv}\line
+{\i \cf0\chcbpat1 *    EXPORTING}\line
+{\i \cf0\chcbpat1 *      i_parent          = go_cont}\line
+{\i \cf0\chcbpat1 *       .}\line
+{\cf2\chcbpat3 IF }{go_alv }{\cf2\chcbpat3 IS }{\cf2\chcbpat3 INITIAL}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 CREATE }{OBJECT }{go_alv}\line
+{    }{\cf2\chcbpat3 EXPORTING}\line
+{      }{i_parent }{\cf4\chcbpat5 = }{cl_gui_container}{\cf6\chcbpat7 =>}{screen0}{\cf4\chcbpat5 .}\line
+{}\line
+{   }{\cf2\chcbpat3 PERFORM }{set_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CALL }{\cf2\chcbpat3 METHOD }{go_alv}{\cf6\chcbpat7 ->}{set_table_for_first_display}\line
+{    }{\cf2\chcbpat3 EXPORTING}\line
+{\i \cf0\chcbpat1 *      i_buffer_active               =}\line
+{\i \cf0\chcbpat1 *      i_bypassing_buffer            =}\line
+{\i \cf0\chcbpat1 *      i_consistency_check           =}\line
+{\i \cf0\chcbpat1 *      i_structure_name             =}\line
+{\i \cf0\chcbpat1 *      is_variant                    =}\line
+{\i \cf0\chcbpat1 *      i_save                        =}\line
+{\i \cf0\chcbpat1 *      i_default                     = 'X'}\line
+{      }{is_layout                     }{\cf4\chcbpat5 = }{gs_layout}\line
+{\i \cf0\chcbpat1 *      is_print                      =}\line
+{\i \cf0\chcbpat1 *      it_special_groups             =}\line
+{\i \cf0\chcbpat1 *      it_toolbar_excluding          =}\line
+{\i \cf0\chcbpat1 *      it_hyperlink                  =}\line
+{\i \cf0\chcbpat1 *      it_alv_graphics               =}\line
+{\i \cf0\chcbpat1 *      it_except_qinfo               =}\line
+{\i \cf0\chcbpat1 *      ir_salv_adapter               =}\line
+{    }{\cf2\chcbpat3 CHANGING}\line
+{      }{it_outtab       }{\cf4\chcbpat5 = }{gt_scarr[]}\line
+{      }{it_fieldcatalog }{\cf4\chcbpat5 = }{gt_fcat}\line
+{\i \cf0\chcbpat1 *     it_sort         =}\line
+{\i \cf0\chcbpat1 *     it_filter       =}\line
+{\i \cf0\chcbpat1 *    EXCEPTIONS}\line
+{\i \cf0\chcbpat1 *     invalid_parameter_combination = 1}\line
+{\i \cf0\chcbpat1 *     program_error   = 2}\line
+{\i \cf0\chcbpat1 *     too_many_lines  = 3}\line
+{\i \cf0\chcbpat1 *     others          = 4}\line
+{    }{\cf4\chcbpat5 .}\line
+{}\line
+{\i \cf0\chcbpat1 *  CALL METHOD go_alv->register_edit_event}\line
+{\i \cf0\chcbpat1 *    EXPORTING}\line
+{\i \cf0\chcbpat1 *      i_event_id = cl_gui_alv_grid=>mc_evt_enter.}\line
+{  }{\cf2\chcbpat3 CALL }{\cf2\chcbpat3 METHOD }{go_alv}{\cf6\chcbpat7 ->}{register_edit_event}\line
+{    }{\cf2\chcbpat3 EXPORTING}\line
+{      }{i_event_id }{\cf4\chcbpat5 = }{cl_gui_alv_grid}{\cf6\chcbpat7 =>}{mc_evt_modified}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 ELSE}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 CALL }{\cf2\chcbpat3 METHOD }{go_alv}{\cf6\chcbpat7 ->}{refresh_table_display}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 ENDIF}{\cf4\chcbpat5 .}\line
+{   }{\cf2\chcbpat3 ENDFORM}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&      Form  GET_DATA}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *       text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *  -->  p1        text}\line
+{\i \cf0\chcbpat1 *  <--  p2        text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\cf2\chcbpat3 FORM }{get_data }{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 SELECT }{* }{\cf2\chcbpat3 FROM }{scarr}\line
+{    }{\cf2\chcbpat3 INTO }{CORRESPONDING }{\cf2\chcbpat3 FIELDS }{\cf2\chcbpat3 OF }{\cf2\chcbpat3 TABLE }{gt_scarr}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *  LOOP AT gt_scarr ASSIGNING <gfs_scarr>.}\line
+{\i \cf0\chcbpat1 *    CASE <gfs_scarr>-currcode.}\line
+{\i \cf0\chcbpat1 *      WHEN 'USD'.}\line
+{\i \cf0\chcbpat1 *        <gfs_scarr>-line_color = 'C710'.}\line
+{\i \cf0\chcbpat1 *      WHEN 'JPY'.}\line
+{\i \cf0\chcbpat1 *        <gfs_scarr>-line_color = 'C501'.}\line
+{\i \cf0\chcbpat1 *      WHEN 'EUR'.}\line
+{\i \cf0\chcbpat1 *        CLEAR: gs_cell_color.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-fname = 'URL'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-col = '3'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-int = '1'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-inv = '0'.}\line
+{\i \cf0\chcbpat1 *        APPEND gs_cell_color TO <gfs_scarr>-cell_color.}\line
+{\i \cf0\chcbpat1 *        CLEAR: gs_cell_color.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-fname = 'CARRNAME'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-col = '5 '.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-int = '1'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-inv = '0'.}\line
+{\i \cf0\chcbpat1 *        APPEND gs_cell_color TO <gfs_scarr>-cell_color.}\line
+{\i \cf0\chcbpat1 *      WHEN 'ZAR'.}\line
+{\i \cf0\chcbpat1 *        CLEAR: gs_cell_color.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-fname = 'URL'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-col = '3'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-int = '0'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-inv = '0'.}\line
+{\i \cf0\chcbpat1 *        APPEND gs_cell_color TO <gfs_scarr>-cell_color.}\line
+{\i \cf0\chcbpat1 *      WHEN 'CHF'.}\line
+{\i \cf0\chcbpat1 *        CLEAR: gs_cell_color.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-fname = 'URL'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-col = '6'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-int = '1'.}\line
+{\i \cf0\chcbpat1 *        gs_cell_color-color-inv = '0'.}\line
+{\i \cf0\chcbpat1 *        APPEND gs_cell_color TO <gfs_scarr>-cell_color.}\line
+{\i \cf0\chcbpat1 *    ENDCASE.}\line
+{\i \cf0\chcbpat1 *  ENDLOOP.}\line
+{}\line
+{\i \cf0\chcbpat1 *   LOOP AT gt_scarr ASSIGNING <gfs_scarr>.}\line
+{\i \cf0\chcbpat1 *      <gfs_scarr>-durum = '@11@'.}\line
+{\i \cf0\chcbpat1 *   ENDLOOP.}\line
+{  }{\cf2\chcbpat3 LOOP }{\cf2\chcbpat3 AT }{gt_scarr }{\cf2\chcbpat3 ASSIGNING }{<gfs_scarr>}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 CASE }{<gfs_scarr>}{\cf6\chcbpat7 -}{currcode}{\cf4\chcbpat5 .}\line
+{      }{\cf2\chcbpat3 WHEN }{\cf8\chcbpat9 'EUR'}{\cf4\chcbpat5 .}\line
+{        }{<gfs_scarr>}{\cf6\chcbpat7 -}{dd_handle }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '3'}{\cf4\chcbpat5 .}\line
+{      }{\cf2\chcbpat3 WHEN }{\cf8\chcbpat9 'USD'}{\cf4\chcbpat5 .}\line
+{        }{<gfs_scarr>}{\cf6\chcbpat7 -}{dd_handle }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '4'}{\cf4\chcbpat5 .}\line
+{      }{\cf2\chcbpat3 WHEN }{\cf8\chcbpat9 'JPY'}{\cf4\chcbpat5 .}\line
+{        }{<gfs_scarr>}{\cf6\chcbpat7 -}{dd_handle }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '5'}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 ENDCASE}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDLOOP}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 ENDFORM}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&      Form  SET_FCAT}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *       text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *  -->  p1        text}\line
+{\i \cf0\chcbpat1 *  <--  p2        text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\cf2\chcbpat3 FORM }{set_fcat }{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'DURUM'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Durum'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Durum'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Durum'}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 * gs_fcat-col_pos = 2.}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'CARRID'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu T.'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu Tan\u305?m\u305?'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu \u351?irketinin genel tan\u305?m\u305?'}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 * gs_fcat-col_pos = 2.}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{\cf2\chcbpat3 key }{\cf4\chcbpat5 = }{abap_true}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'CARRNAME'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu Ad'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu Ad\u305?'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu \u351?irketinin ad\u305?'}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 * gs_fcat-col_pos = 3.}\line
+{\i \cf0\chcbpat1 * gs_fcat-edit = abap_true.}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'CURRCODE'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu PB'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu PB'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu \u351?irketinin ulusal para birimi'}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 * gs_fcat-col_pos = 4.}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{\cf2\chcbpat3 hotspot }{\cf4\chcbpat5 = }{abap_true}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'URL'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu URL'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu URL'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Havayolu \u351?irketinin URL'}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 * gs_fcat-col_pos = 1.}\line
+{\i \cf0\chcbpat1 *  gs_fcat-col_opt = abap_true.}\line
+{\i \cf0\chcbpat1 * gs_fcat-no_out = abap_true.}\line
+{\i \cf0\chcbpat1 * gs_fcat-outputlen = 100.}\line
+{\i \cf0\chcbpat1 * gs_fcat-ref_table = 'SCARR'.}\line
+{\i \cf0\chcbpat1 * gs_fcat-ref_field = 'URL'.}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'COST'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Fiyat'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Fiyat'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Fiyat'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{\cf2\chcbpat3 edit      }{\cf4\chcbpat5 = }{abap_true}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'LOCATION'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Lokasyon'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Lokasyon'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Lokasyon'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{\cf2\chcbpat3 edit      }{\cf4\chcbpat5 = }{abap_true}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{drdn_hndl }{\cf4\chcbpat5 = }{\cf10\chcbpat11 1}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'SEATL'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Koltuk Harf'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Koltuk Harf'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Koltuk Harf'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{\cf2\chcbpat3 edit      }{\cf4\chcbpat5 = }{abap_true}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{drdn_hndl }{\cf4\chcbpat5 = }{\cf10\chcbpat11 2}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_fcat}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{fieldname }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'SEATP'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_s }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Koltuk pos'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_m }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Koltuk pos'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{scrtext_l }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Koltuk pos'}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{\cf2\chcbpat3 edit      }{\cf4\chcbpat5 = }{abap_true}{\cf4\chcbpat5 .}\line
+{  }{gs_fcat}{\cf6\chcbpat7 -}{drdn_field }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'DD_HANDLE'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{gs_fcat }{\cf2\chcbpat3 TO }{gt_fcat}{\cf4\chcbpat5 .}\line
+{}\line
+{}\line
+{\i \cf0\chcbpat1 *  CALL FUNCTION 'LVC_FIELDCATALOG_MERGE'}\line
+{\i \cf0\chcbpat1 *   EXPORTING}\line
+{\i \cf0\chcbpat1 *     I_STRUCTURE_NAME             = 'SCARR'}\line
+{\i \cf0\chcbpat1 **     I_STRUCTURE_NAME             = 'ZIO_EGT_30_S'}\line
+{\i \cf0\chcbpat1 **     I_INTERNAL_TABNAME           = 'GT_SCARR'}\line
+{\i \cf0\chcbpat1 *    CHANGING}\line
+{\i \cf0\chcbpat1 *      ct_fieldcat                  = gt_fcat}\line
+{\i \cf0\chcbpat1 *   EXCEPTIONS}\line
+{\i \cf0\chcbpat1 *     INCONSISTENT_INTERFACE       = 1}\line
+{\i \cf0\chcbpat1 *     PROGRAM_ERROR                = 2}\line
+{\i \cf0\chcbpat1 *     OTHERS                       = 3}\line
+{\i \cf0\chcbpat1 *            .}\line
+{\i \cf0\chcbpat1 *  IF sy-subrc <> 0.}\line
+{\i \cf0\chcbpat1 ** Implement suitable error handling here}\line
+{\i \cf0\chcbpat1 *  ENDIF.}\line
+{\i \cf0\chcbpat1 *}\line
+{\i \cf0\chcbpat1 * READ TABLE gt_fcat ASSIGNING <gfs_fc> WITH KEY fieldname = 'MESS'.}\line
+{\i \cf0\chcbpat1 *  IF sy-subrc eq 0.}\line
+{\i \cf0\chcbpat1 *    <gfs_fc>-edit = abap_true.}\line
+{\i \cf0\chcbpat1 *    <gfs_fc>-no_out = abap_true.}\line
+{\i \cf0\chcbpat1 *  ENDIF.}\line
+{}\line
+{\cf2\chcbpat3 ENDFORM}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&      Form  SET_LAYOUT}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *       text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *  -->  p1        text}\line
+{\i \cf0\chcbpat1 *  <--  p2        text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\cf2\chcbpat3 FORM }{set_layout }{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 CLEAR}{\cf4\chcbpat5 : }{gs_layout}{\cf4\chcbpat5 .}\line
+{  }{gs_layout}{\cf6\chcbpat7 -}{cwidth_opt }{\cf4\chcbpat5 = }{abap_true}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *  gs_layout-edit = abap_true.}\line
+{  }{gs_layout}{\cf6\chcbpat7 -}{no_toolbar }{\cf4\chcbpat5 = }{abap_true}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *  gs_layout-zebra = abap_true.}\line
+{\i \cf0\chcbpat1 *  gs_layout-info_fname = 'LINE_COLOR'.}\line
+{\i \cf0\chcbpat1 *  gs_layout-ctab_fname = 'CELL_COLOR'.}\line
+{\cf2\chcbpat3 ENDFORM}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&      Form  GET_TOTAL_SUM}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *       text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *  -->  p1        text}\line
+{\i \cf0\chcbpat1 *  <--  p2        text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\cf2\chcbpat3 FORM }{get_total_sum}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 * DATA: lv_ttl_sum TYPE int4,}\line
+{\i \cf0\chcbpat1 *       lv_ttl_sum_c TYPE char10,}\line
+{\i \cf0\chcbpat1 *       lv_mess    TYPE char200.}\line
+{\i \cf0\chcbpat1 * LOOP AT gt_scarr INTO gs_scarr.}\line
+{\i \cf0\chcbpat1 *   lv_ttl_sum = lv_ttl_sum + gs_scarr-cost.}\line
+{\i \cf0\chcbpat1 * ENDLOOP.}\line
+{\i \cf0\chcbpat1 * lv_ttl_sum_c = lv_ttl_sum.}\line
+{\i \cf0\chcbpat1 * CONCATENATE 'T\u252?m sat\u305?rlar\u305?n toplam\u305? = '}\line
+{\i \cf0\chcbpat1 *             lv_ttl_sum_c}\line
+{\i \cf0\chcbpat1 *             INTO lv_mess.}\line
+{\i \cf0\chcbpat1 * MESSAGE lv_mess TYPE 'I'.}\line
+{  }{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{lv_ttl_sum }{\cf2\chcbpat3 TYPE }{int4}{\cf4\chcbpat5 ,}\line
+{        }{lv_lines   }{\cf2\chcbpat3 TYPE }{int4}{\cf4\chcbpat5 ,}\line
+{        }{lv_avg }{\cf2\chcbpat3 TYPE }{int4}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 LOOP }{\cf2\chcbpat3 AT  }{gt_scarr }{\cf2\chcbpat3 INTO }{gs_scarr}{\cf4\chcbpat5 .}\line
+{    }{lv_ttl_sum }{\cf4\chcbpat5 = }{lv_ttl_sum }{+ }{gs_scarr}{\cf6\chcbpat7 -}{cost }{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDLOOP}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 DESCRIBE }{\cf2\chcbpat3 TABLE }{gt_scarr }{\cf2\chcbpat3 LINES }{lv_lines}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{lv_avg }{\cf4\chcbpat5 = }{lv_ttl_sum }{/ }{lv_lines }{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 LOOP }{\cf2\chcbpat3 AT }{gt_scarr }{\cf2\chcbpat3 ASSIGNING }{<gfs_scarr>}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 IF }{<gfs_scarr>}{\cf6\chcbpat7 -}{cost }{> }{lv_avg}{\cf4\chcbpat5 .}\line
+{      }{<gfs_scarr>}{\cf6\chcbpat7 -}{durum }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '@0A@'}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 ELSEIF }{<gfs_scarr>}{\cf6\chcbpat7 -}{cost }{< }{lv_avg}{\cf4\chcbpat5 .}\line
+{      }{<gfs_scarr>}{\cf6\chcbpat7 -}{durum }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '@08@'}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 ELSE}{\cf4\chcbpat5 .}\line
+{      }{<gfs_scarr>}{\cf6\chcbpat7 -}{durum }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '@09@'}{\cf4\chcbpat5 .}\line
+{    }{\cf2\chcbpat3 ENDIF}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 ENDLOOP}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 ENDFORM}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&      Form  SET_DROPDOWN}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *       text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *  -->  p1        text}\line
+{\i \cf0\chcbpat1 *  <--  p2        text}\line
+{\i \cf0\chcbpat1 *----------------------------------------------------------------------*}\line
+{\cf2\chcbpat3 FORM }{set_dropdown }{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{lt_dropdown }{\cf2\chcbpat3 TYPE }{lvc_t_drop}{\cf4\chcbpat5 ,}\line
+{        }{ls_dropdown }{\cf2\chcbpat3 TYPE }{lvc_s_drop}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 1}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Yurti\u231?i'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 1}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Yurtd\u305?\u351?\u305?'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 2}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'A'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 2}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'B'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 2}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'C'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 2}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'D'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 2}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'E'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 2}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'F'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 3}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '\u214?n'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 3}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Arka'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 3}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Kanat'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 4}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 '\u214?n'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 4}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Arka'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{\cf2\chcbpat3 CLEAR }{ls_dropdown}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{handle }{\cf4\chcbpat5 = }{\cf10\chcbpat11 5}{\cf4\chcbpat5 .}\line
+{  }{ls_dropdown}{\cf6\chcbpat7 -}{\cf2\chcbpat3 value }{\cf4\chcbpat5 = }{\cf8\chcbpat9 'Kanat'}{\cf4\chcbpat5 .}\line
+{  }{\cf2\chcbpat3 APPEND }{ls_dropdown }{\cf2\chcbpat3 TO }{lt_dropdown}{\cf4\chcbpat5 .}\line
+{}\line
+{  }{go_alv}{\cf6\chcbpat7 ->}{set_drop_down_table}{\cf4\chcbpat5 (}\line
+{    }{\cf2\chcbpat3 EXPORTING}\line
+{      }{it_drop_down }{\cf4\chcbpat5 = }{lt_dropdown}\line
+{ }{\cf4\chcbpat5 )}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 ENDFORM}{\cf4\chcbpat5 .}\par }

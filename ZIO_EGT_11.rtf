@@ -1,0 +1,48 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil\fcharset1 Courier New;}}{\colortbl\red0\green0\blue255;\red255\green255\blue255;\red128\green0\blue128;\red255\green255\blue255;\red77\green166\blue25;\red255\green255\blue255;\red51\green153\blue255;\red255\green255\blue255;\red128\green128\blue128;\red255\green255\blue255;}\f0\fs20
+{\*\generator AB4Editor Control;}{\info{\title ZIO_EGT_11}{\author Alexey Arseniev}{\*\company Alexey Arseniev}}{\cf0\chcbpat1 REPORT }{ZIO_EGT_11}{\cf2\chcbpat3 .}\line
+{}\line
+{\cf0\chcbpat1 DATA}{\cf2\chcbpat3 : }{gv_index }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 i}{\cf2\chcbpat3 ,}\line
+{      }{gv_mod2 }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 i}{\cf2\chcbpat3 ,}\line
+{      }{gv_mod3 }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 i}{\cf2\chcbpat3 .}\line
+{}\line
+{\cf0\chcbpat1 START-OF-SELECTION}{\cf2\chcbpat3 .}\line
+{}\line
+{}\line
+{}\line
+{\cf0\chcbpat1 PERFORM  }{form1}{\cf2\chcbpat3 .}\line
+{}\line
+{\cf0\chcbpat1 WRITE}{\cf2\chcbpat3 : }{/ }{\cf4\chcbpat5 '2ye bolunen say\u305? adedi:'}{\cf2\chcbpat3 , }{gv_mod2}{\cf2\chcbpat3 .}\line
+{\cf0\chcbpat1 WRITE}{\cf2\chcbpat3 : }{/ }{\cf4\chcbpat5 '3e bolunen say\u305? adedi:'}{\cf2\chcbpat3 , }{gv_mod3}{\cf2\chcbpat3 .}\line
+{}\line
+{}\line
+{\cf0\chcbpat1 FORM }{form1 }{\cf2\chcbpat3 .}\line
+{}\line
+{gv_index }{\cf2\chcbpat3 = }{\cf6\chcbpat7 0}{\cf2\chcbpat3 .}\line
+{}\line
+{\cf0\chcbpat1 DO }{\cf6\chcbpat7 10 }{\cf0\chcbpat1 TIMES}{\cf2\chcbpat3 .}\line
+{  }{\cf0\chcbpat1 IF }{gv_index }{\cf0\chcbpat1 MOD }{\cf6\chcbpat7 2 }{\cf0\chcbpat1 EQ }{\cf6\chcbpat7 0}{\cf2\chcbpat3 .}\line
+{    }{gv_mod2 }{\cf2\chcbpat3 = }{gv_mod2 }{+ }{\cf6\chcbpat7 1}{\cf2\chcbpat3 .}\line
+{  }{\cf0\chcbpat1 ENDIF}{\cf2\chcbpat3 .}\line
+{  }{\cf0\chcbpat1 IF }{gv_index }{\cf0\chcbpat1 MOD }{\cf6\chcbpat7 3 }{\cf0\chcbpat1 EQ }{\cf6\chcbpat7 0}{\cf2\chcbpat3 .}\line
+{    }{gv_mod3 }{\cf2\chcbpat3 = }{gv_mod3 }{+ }{\cf6\chcbpat7 1}{\cf2\chcbpat3 .}\line
+{  }{\cf0\chcbpat1 ENDIF}{\cf2\chcbpat3 .}\line
+{    }{gv_index }{\cf2\chcbpat3 = }{gv_index }{+ }{\cf6\chcbpat7 1}{\cf2\chcbpat3 .}\line
+{\cf0\chcbpat1 ENDDO}{\cf2\chcbpat3 .}\line
+{}\line
+{}\line
+{}\line
+{\cf0\chcbpat1 ENDFORM}{\cf2\chcbpat3 .}\line
+{\i \cf8\chcbpat9 *DATA: gv_num1 TYPE i,}\line
+{\i \cf8\chcbpat9 *      gv_num2 TYPE i.}\line
+{\i \cf8\chcbpat9 *}\line
+{\i \cf8\chcbpat9 *START-OF-SELECTION.}\line
+{\i \cf8\chcbpat9 *}\line
+{\i \cf8\chcbpat9 *gv_num1 = 10.}\line
+{\i \cf8\chcbpat9 *gv_num1 = gv_num1 + 1.}\line
+{\i \cf8\chcbpat9 *gv_num1 = gv_num1 + 1.}\line
+{\i \cf8\chcbpat9 *gv_num1 = gv_num1 + 1.}\line
+{\i \cf8\chcbpat9 *}\line
+{\i \cf8\chcbpat9 *gv_num2 = 5.}\line
+{\i \cf8\chcbpat9 *gv_num2 = gv_num1 + gv_num2.}\line
+{\i \cf8\chcbpat9 *}\line
+{\i \cf8\chcbpat9 *WRITE: gv_num1, gv_num2.}\par }

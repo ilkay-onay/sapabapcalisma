@@ -1,0 +1,8 @@
+*&---------------------------------------------------------------------*
+*&  Include           ZIO_PROTOPERS_TOP
+*&---------------------------------------------------------------------*
+
+DATA: gv_fm_name    TYPE rs38l_fnam,
+      gs_controls   TYPE ssfctrlop,
+      gs_output_opt TYPE ssfcompop,
+      gv_id_g       TYPE char7.

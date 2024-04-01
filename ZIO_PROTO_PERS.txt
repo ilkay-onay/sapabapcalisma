@@ -1,0 +1,38 @@
+DATA: lv_hour    TYPE int2,
+      gv_day_int TYPE int1.
+
+vl_image = gs_protopers-pers_image.
+lv_hour = sy-uzeit+0(2).
+CONCATENATE gs_protopers-pers_bdate+0(2) '.'
+            gs_protopers-pers_bdate+2(2) '.'
+            gs_protopers-pers_bdate+4(4)
+INTO gv_cbdate.
+
+CONCATENATE gs_protopers-pers_tatil+0(2) '.'
+            gs_protopers-pers_tatil+2(2) '.'
+            gs_protopers-pers_tatil+4(4)
+INTO gv_holdate.
+
+CALL FUNCTION 'DATE_COMPUTE_DAY'
+  EXPORTING
+    date = sy-datum
+  IMPORTING
+    day  = gv_day.
+gv_day_int = gv_day.
+
+IF gs_protopers-pers_gender = 0.
+  gv_gender = 'KADIN'.
+ELSE.
+  gv_gender = 'ERKEK'.
+ENDIF.
+IF gs_protopers-pers_tatil = '0'.
+  gv_holiday = 'D'.
+ELSE.
+  gv_holiday = 'A'.
+ENDIF.
+
+IF lv_hour >= 8 AND lv_hour <= 18 AND gv_holiday = 'D' AND gv_day_int < 6.
+  gv_active = 'A'.
+ELSE.
+  gv_active = ' '.
+ENDIF.

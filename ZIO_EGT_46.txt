@@ -1,0 +1,64 @@
+REPORT ZIO_EGT_46.
+
+TYPES: BEGIN OF gty_list,
+  PERS_ID TYPE ZIO_PERSID_DE,
+  PERS_NAME TYPE ZIO_PERSAD_DE,
+  PERS_AGE TYPE ZIO_PERSYAS_DE,
+       END OF gty_list.
+
+DATA:
+      gt_list TYPE TABLE OF gty_list,
+      gt_RETURN_TAB TYPE TABLE OF  DDSHRETVAL,
+      gt_MAPPING TYPE TABLE OF  DSELC,
+      gs_mapping TYPE DSELC.
+
+DATA: gv_id TYPE char10.
+
+PARAMETERS: p_id TYPE INT1,
+            P_ad TYPE CHAR30,
+            P_yas TYPE INT1.
+
+SELECT-OPTIONS: s_id FOR gv_id.
+AT SELECTION-SCREEN on VALUE-REQUEST FOR s_id-low.
+
+AT SELECTION-SCREEN on VALUE-REQUEST FOR s_id-high.
+
+AT SELECTION-SCREEN on VALUE-REQUEST FOR p_id.
+
+  SELECT * FROM ZIO_EGT_05
+    INTO CORRESPONDING FIELDS OF TABLE gt_list.
+
+gs_mapping-fldname = 'F0001'.
+gs_mapping-dyfldname = 'P_ID'.
+APPEND gs_mapping to gt_mapping.
+
+gs_mapping-fldname = 'F0002'.
+gs_mapping-dyfldname = 'P_AD'.
+APPEND gs_mapping to gt_mapping.
+
+gs_mapping-fldname = 'F0003'.
+gs_mapping-dyfldname = 'P_YAS'.
+APPEND gs_mapping to gt_mapping.
+
+  CALL FUNCTION 'F4IF_INT_TABLE_VALUE_REQUEST'
+    EXPORTING
+      retfield               = 'PERS_ID'
+     DYNPPROG               = sy-repid
+     DYNPNR                 = sy-dynnr
+     DYNPROFIELD            = 'P_ID'
+     VALUE_ORG              = 'S'
+    tables
+      value_tab              = gt_list
+     RETURN_TAB             = gt_RETURN_TAB
+     DYNPFLD_MAPPING        = gt_MAPPING
+   EXCEPTIONS
+     PARAMETER_ERROR        = 1
+     NO_VALUES_FOUND        = 2
+     OTHERS                 = 3
+            .
+  IF sy-subrc <> 0.
+* Implement suitable error handling here
+  ENDIF.
+
+
+START-OF-SELECTION.

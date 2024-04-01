@@ -1,0 +1,94 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil\fcharset1 Courier New;}}{\colortbl\red0\green0\blue255;\red255\green255\blue255;\red128\green0\blue128;\red255\green255\blue255;\red128\green128\blue128;\red255\green255\blue255;\red51\green153\blue255;\red255\green255\blue255;\red77\green166\blue25;\red255\green255\blue255;}\f0\fs20
+{\*\generator AB4Editor Control;}{\info{\title ZIO_EGT_02}{\author Alexey Arseniev}{\*\company Alexey Arseniev}}{\cf0\chcbpat1 REPORT }{zio_egt_02}{\cf2\chcbpat3 .}\line
+{}\line
+{\i \cf4\chcbpat5 *DATA gv_var1 TYPE i.}\line
+{\i \cf4\chcbpat5 *DATA gv_var2 TYPE n LENGTH 8.}\line
+{}\line
+{\i \cf4\chcbpat5 *this is a example of a comment line}\line
+{\i \cf4\chcbpat5 *comment lines does not affect the program}\line
+{\cf0\chcbpat1 DATA}{\cf2\chcbpat3 : }{gv_var1    }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 i}{\cf2\chcbpat3 ,}\line
+{      }{gv_var2    }{\cf0\chcbpat1 TYPE }{n }{LENGTH }{\cf6\chcbpat7 8}{\cf2\chcbpat3 ,}\line
+{      }{gv_result1 }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 i}{\cf2\chcbpat3 ,}\line
+{      }{gv_result2 }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 i}{\cf2\chcbpat3 ,}\line
+{      }{gv_result3 }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 i}{\cf2\chcbpat3 ,}\line
+{      }{gv_result4 }{\cf0\chcbpat1 TYPE }{\cf0\chcbpat1 i}{\cf2\chcbpat3 ,}\line
+{      }{gv_text1   }{\cf0\chcbpat1 TYPE }{string}{\cf2\chcbpat3 .}\line
+{}\line
+{gv_var1 }{\cf2\chcbpat3 = }{\cf6\chcbpat7 0}{\cf2\chcbpat3 .}\line
+{gv_var2 }{\cf2\chcbpat3 = }{\cf6\chcbpat7 15}{\cf2\chcbpat3 .}\line
+{}\line
+{\i \cf4\chcbpat5 *WRITE gv_var1.}\line
+{\i \cf4\chcbpat5 *WRITE gv_var2.}\line
+{\i \cf4\chcbpat5 *gv_text1 = 'Toplam\u305? = '.}\line
+{\i \cf4\chcbpat5 *gv_result1 = gv_var1 + gv_var2.}\line
+{\i \cf4\chcbpat5 *gv_result2 = gv_var1 - gv_var2.}\line
+{\i \cf4\chcbpat5 *gv_result3 = gv_var1 * gv_var2.}\line
+{\i \cf4\chcbpat5 *gv_result3 = gv_var1 / gv_var2.}\line
+{\i \cf4\chcbpat5 *}\line
+{\i \cf4\chcbpat5 *WRITE: gv_text1, gv_result1.}\line
+{\i \cf4\chcbpat5 *WRITE: / 'Fark\u305? = ', gv_result2.}\line
+{\i \cf4\chcbpat5 *WRITE: / '\u199?arp\u305?m\u305? = ', gv_result3.}\line
+{\i \cf4\chcbpat5 *WRITE: / 'B\u246?l\u252?m\u252? = ', gv_result4.}\line
+{}\line
+{\i \cf4\chcbpat5 *IF gv_var1 > gv_var2.}\line
+{\i \cf4\chcbpat5 *  WRITE: 'Birinci say\u305? b\u252?y\u252?kt\u252?r'.}\line
+{\i \cf4\chcbpat5 *ENDIF.}\line
+{\i \cf4\chcbpat5 *}\line
+{\i \cf4\chcbpat5 *IF gv_var1 < gv_var2.}\line
+{\i \cf4\chcbpat5 *  WRITE: '\u304?kinci say\u305? b\u252?y\u252?kt\u252?r'.}\line
+{\i \cf4\chcbpat5 *ENDIF.}\line
+{\i \cf4\chcbpat5 *}\line
+{\i \cf4\chcbpat5 *IF gv_var1 = gv_var2.}\line
+{\i \cf4\chcbpat5 *  WRITE: '\u304?ki say\u305? e\u351?ittir'.}\line
+{\i \cf4\chcbpat5 *ENDIF.}\line
+{}\line
+{\i \cf4\chcbpat5 *IF gv_var1 > gv_var2.}\line
+{\i \cf4\chcbpat5 *  WRITE: 'Birinci say\u305? b\u252?y\u252?kt\u252?r'.}\line
+{\i \cf4\chcbpat5 *ELSEIF gv_var1 < gv_var2.}\line
+{\i \cf4\chcbpat5 *  WRITE: '\u304?kinci say\u305? b\u252?y\u252?kt\u252?r'.}\line
+{\i \cf4\chcbpat5 *ELSE.}\line
+{\i \cf4\chcbpat5 *  WRITE: '\u304?ki say\u305? e\u351?ittir'.}\line
+{\i \cf4\chcbpat5 *ENDIF.}\line
+{}\line
+{\i \cf4\chcbpat5 *IF gv_var1 = 1.}\line
+{\i \cf4\chcbpat5 *  WRITE 'De\u287?i\u351?ken de\u287?erim 1.'.}\line
+{\i \cf4\chcbpat5 *ELSEIF gv_var1 = 2.}\line
+{\i \cf4\chcbpat5 *  WRITE 'Degisken de\u287?erim 2.'.}\line
+{\i \cf4\chcbpat5 *ELSEIF gv_var1 = 3.}\line
+{\i \cf4\chcbpat5 *  WRITE 'Degisken de\u287?erim 3.'.}\line
+{\i \cf4\chcbpat5 *ELSEIF gv_var1 = 4.}\line
+{\i \cf4\chcbpat5 *  WRITE 'Degisken de\u287?erim 4.'.}\line
+{\i \cf4\chcbpat5 *ELSEIF gv_var1 = 5.}\line
+{\i \cf4\chcbpat5 *  WRITE 'Degisken de\u287?erim 5.'.}\line
+{\i \cf4\chcbpat5 *ELSEIF gv_var1 = 6.}\line
+{\i \cf4\chcbpat5 *  WRITE 'Degisken de\u287?erim 6.'.}\line
+{\i \cf4\chcbpat5 *ELSE:}\line
+{\i \cf4\chcbpat5 *  WRITE 'Haz\u305?r de\u287?erlerin hi\u231?birine e\u351?it de\u287?il'.}\line
+{\i \cf4\chcbpat5 *ENDIF.}\line
+{}\line
+{\i \cf4\chcbpat5 *CASE gv_var1.}\line
+{\i \cf4\chcbpat5 *  WHEN 1.}\line
+{\i \cf4\chcbpat5 *    WRITE 'De\u287?i\u351?ken de\u287?erim 1.'.}\line
+{\i \cf4\chcbpat5 *  WHEN 2.}\line
+{\i \cf4\chcbpat5 *    WRITE 'De\u287?i\u351?ken de\u287?erim 2.'.}\line
+{\i \cf4\chcbpat5 *  WHEN 3.}\line
+{\i \cf4\chcbpat5 *    WRITE 'De\u287?i\u351?ken de\u287?erim 3.'.}\line
+{\i \cf4\chcbpat5 *  WHEN 4.}\line
+{\i \cf4\chcbpat5 *    WRITE 'De\u287?i\u351?ken de\u287?erim 4.'.}\line
+{\i \cf4\chcbpat5 *  WHEN 5.}\line
+{\i \cf4\chcbpat5 *    WRITE 'De\u287?i\u351?ken de\u287?erim 5.'.}\line
+{\i \cf4\chcbpat5 *  WHEN 6.}\line
+{\i \cf4\chcbpat5 *    WRITE 'De\u287?i\u351?ken de\u287?erim 6.'.}\line
+{\i \cf4\chcbpat5 *  WHEN OTHERS.}\line
+{\i \cf4\chcbpat5 *    WRITE 'Haz\u305?r de\u287?erlerin hi\u231?birine e\u351?it de\u287?il'.}\line
+{\i \cf4\chcbpat5 *ENDCASE.}\line
+{}\line
+{\i \cf4\chcbpat5 *DO 8 TIMES.}\line
+{\i \cf4\chcbpat5 *  gv_var1 = gv_var1 + 1.}\line
+{\i \cf4\chcbpat5 *  WRITE: / gv_var1 , 'Do d\u246?ng\u252?s\u252? test.'.}\line
+{\i \cf4\chcbpat5 *ENDDO.}\line
+{}\line
+{\cf0\chcbpat1 WHILE }{gv_var1 }{< }{\cf6\chcbpat7 10}{\cf2\chcbpat3 .}\line
+{  }{gv_var1 }{\cf2\chcbpat3 = }{gv_var1 }{+ }{\cf6\chcbpat7 1}{\cf2\chcbpat3 .}\line
+{  }{\cf0\chcbpat1 WRITE}{\cf2\chcbpat3 : }{/ }{gv_var1}{\cf2\chcbpat3 , }{\cf8\chcbpat9 'While d\u246?g\u252?s\u252? test.'}{\cf2\chcbpat3 .}\line
+{\cf0\chcbpat1 ENDWHILE}{\cf2\chcbpat3 .}\par }

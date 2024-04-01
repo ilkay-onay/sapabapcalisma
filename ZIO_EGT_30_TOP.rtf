@@ -1,0 +1,43 @@
+{\rtf1\ansi\deff0\deftab720{\fonttbl{\f0\fnil\fcharset1 Courier New;}}{\colortbl\red128\green128\blue128;\red255\green255\blue255;\red0\green0\blue255;\red255\green255\blue255;\red128\green0\blue128;\red255\green255\blue255;}\f0\fs20
+{\*\generator AB4Editor Control;}{\info{\title ZIO_EGT_30_TOP}{\author Alexey Arseniev}{\*\company Alexey Arseniev}}{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\i \cf0\chcbpat1 *&  Include           ZIO_EGT_30_TOP}\line
+{\i \cf0\chcbpat1 *&---------------------------------------------------------------------*}\line
+{\cf2\chcbpat3 TABLES}{\cf4\chcbpat5 : }{scarr}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 TYPE-POOLS }{\cf2\chcbpat3 icon}{\cf4\chcbpat5 .}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{go_alv }{\cf2\chcbpat3 TYPE }{\cf2\chcbpat3 REF }{\cf2\chcbpat3 TO }{cl_gui_alv_grid}{\cf4\chcbpat5 .}\line
+{\i \cf0\chcbpat1 *      go_cont TYPE REF TO cl_gui_custom_container.}\line
+{}\line
+{\i \cf0\chcbpat1 *DATA: BEGIN OF gt_scarr OCCURS 0,}\line
+{\i \cf0\chcbpat1 *  CARRID TYPE scarr-carrid,}\line
+{\i \cf0\chcbpat1 *  CARRNAME TYPE scarr-carrname,}\line
+{\i \cf0\chcbpat1 *  CURRCODE TYPE scarr-currcode,}\line
+{\i \cf0\chcbpat1 *  URL      TYPE scarr-url,}\line
+{\i \cf0\chcbpat1 *  END OF gt_scarr.}\line
+{}\line
+{}\line
+{\cf2\chcbpat3 TYPES}{\cf4\chcbpat5 : }{\cf2\chcbpat3 BEGIN }{\cf2\chcbpat3 OF }{gty_scarr}{\cf4\chcbpat5 ,}\line
+{         }{durum    }{\cf2\chcbpat3 TYPE }{icon_d}{\cf4\chcbpat5 ,}\line
+{         }{carrid   }{\cf2\chcbpat3 TYPE }{s_carr_id}{\cf4\chcbpat5 ,}\line
+{         }{carrname }{\cf2\chcbpat3 TYPE }{s_carrname}{\cf4\chcbpat5 ,}\line
+{         }{currcode }{\cf2\chcbpat3 TYPE }{s_currcode}{\cf4\chcbpat5 ,}\line
+{         }{url      }{\cf2\chcbpat3 TYPE }{s_carrurl}{\cf4\chcbpat5 ,}\line
+{\i \cf0\chcbpat1 *  MESS     TYPE char200,}\line
+{\i \cf0\chcbpat1 *  line_color TYPE char4,}\line
+{\i \cf0\chcbpat1 *  cell_color TYPE lvc_t_scol,}\line
+{         }{cost     }{\cf2\chcbpat3 TYPE }{int4}{\cf4\chcbpat5 ,}\line
+{         }{location }{\cf2\chcbpat3 TYPE }{char20}{\cf4\chcbpat5 ,}\line
+{         }{seatl    }{\cf2\chcbpat3 TYPE }{char1}{\cf4\chcbpat5 ,}\line
+{         }{seatp    }{\cf2\chcbpat3 TYPE }{char10}{\cf4\chcbpat5 ,}\line
+{         }{dd_handle }{\cf2\chcbpat3 TYPE }{int4}{\cf4\chcbpat5 ,}\line
+{       }{\cf2\chcbpat3 END }{\cf2\chcbpat3 OF }{gty_scarr}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA}{\cf4\chcbpat5 : }{gs_cell_color }{\cf2\chcbpat3 TYPE }{lvc_s_scol}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 DATA }{\cf4\chcbpat5 : }{gt_scarr  }{\cf2\chcbpat3 TYPE }{\cf2\chcbpat3 TABLE }{\cf2\chcbpat3 OF }{gty_scarr}{\cf4\chcbpat5 ,}\line
+{       }{gs_scarr  }{\cf2\chcbpat3 TYPE }{gty_scarr}{\cf4\chcbpat5 ,}\line
+{       }{gt_fcat   }{\cf2\chcbpat3 TYPE }{lvc_t_fcat}{\cf4\chcbpat5 ,}\line
+{       }{gs_fcat   }{\cf2\chcbpat3 TYPE }{lvc_s_fcat}{\cf4\chcbpat5 ,}\line
+{       }{gs_layout }{\cf2\chcbpat3 TYPE }{lvc_s_layo}{\cf4\chcbpat5 .}\line
+{}\line
+{\cf2\chcbpat3 FIELD-SYMBOLS}{\cf4\chcbpat5 : }{<gfs_fc>    }{\cf2\chcbpat3 TYPE }{lvc_s_fcat}{\cf4\chcbpat5 ,}\line
+{               }{<gfs_scarr> }{\cf2\chcbpat3 TYPE }{gty_scarr}{\cf4\chcbpat5 .}\par }
